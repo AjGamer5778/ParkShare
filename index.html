@@ -237,6 +237,19 @@ body{
 .footer-column a:hover{
     color:black;
 }
+
+.logout-btn{
+    background: purple;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 1rem;
+}
 </style>
 </head>
 <body>
@@ -258,7 +271,8 @@ body{
         </div>
 
         <div class="login">
-            <img src = "images/profile.png" class = "image_br" ><a href="login.html">Login/Signup</a>
+            <img src = "images/profile.png" class = "image_br" ><a href="login.html" id="login-link">Login/Signup</a>
+            <input type="button" value="Log Out" class="logout-btn" id="logout-btn">
         </div>
     </div>
 
@@ -535,12 +549,6 @@ faqItems.forEach(item => {
     </div>
 
 </footer>
-
-    
-
-
-
-
         <!-- Social Media -->
         <div class = "Socials">
             <a href = "#"><img src = "images/yt.jpg" class = "yt"></a>
@@ -548,7 +556,8 @@ faqItems.forEach(item => {
             <a href = "#"><img src = "images/fb.jpg" class = "fb"></a>
             <a href = "#"><img src = "images/linkedin.jpg" class = "ld"></a>
 
-        </div>
+        </div>  
     <script type="module" src="search.js"></script>
+    <script type="module" src="auth.js"></script>
 </body>
 </html>

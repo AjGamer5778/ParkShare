@@ -5,6 +5,23 @@ const supabase = createClient(
   'sb_publishable_SSZqqiwFwnPispVtOBqbpg_gr01dRlX'
 )
 
+const {data: {session} , error} = await supabase.auth.getSession();
+
+if(session){
+    const card = document.getElementById('main-form');
+} else{
+    const card = document.getElementById('main-form');
+    card.innerHTML = `
+        <div style="text-align: center; padding: 50px; background: white; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 50px;">
+            <h2 style="color: purple;">Members Only Area</h2>
+            <p style="color: #666; margin-bottom: 30px;">You need to be logged in to list your parking space on ParkShare.</p>
+            <a href="login.html" style="background: purple; color: white; padding: 12px 30px; border-radius: 10px; text-decoration: none; font-weight: bold;">
+                Login / Sign Up Now
+            </a>
+        </div>
+    `;
+}
+
 const map = L.map('map').setView([20.5937, 78.9629], 5);
 
 L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
@@ -40,7 +57,7 @@ async function fetchLocation(e){
         console.log(lat, lon);
         map.invalidateSize();
 
-        map.setView([lat, lon], 16); // 16 is a good street-level zoom
+        map.setView([lat, lon], 16);
 
         // 2. If a marker already exists, remove it
         if (marker) map.removeLayer(marker);
@@ -51,7 +68,7 @@ async function fetchLocation(e){
         document.getElementById('lat-input').value = lat;
         document.getElementById('lon-input').value = lon;
 
-        // 4. Update coordinates if the user drags the pin!
+        // 4. Update coordinates if the user drags the pin
         marker.on('dragend', function(event) {
             const position = marker.getLatLng();
             console.log("User refined location to:", position.lat, position.lng);
@@ -112,7 +129,4 @@ async function addParkingSpace(e){
             console.log("Image Uploaded!");
         }
     }
-
-    
-
 }

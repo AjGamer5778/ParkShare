@@ -2,39 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🚗 ParkShare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkShare | Login & Sign Up</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS STYLES */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Overpass', sans-serif;
+        }
+
+        body {
+            background: #F2F3F2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .auth-card {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        h2 {
+            color: purple;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        p.subtitle {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: -10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: purple;
+            box-shadow: 0 0 0 2px rgba(128, 0, 128, 0.1);
+        }
+
+        button {
+            background: purple;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6a006a;
+            transform: translateY(-2px);
+        }
+
+        .toggle-text {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .toggle-link {
+            color: purple;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Small Logo Style */
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: purple;
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h3>Sign-Up</h3>
-    <form id="sign-up">  
-        <label for = "email">Email</label>
-        <input type="email" id="email" required placeholder="Enter Email">
-        <br>
-        <label for = "username">username</label>
-        <input type="text" id="username" required placeholder="Enter Username">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" id="password" required placeholder="Enter Password">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-    <br>
 
-    <form id="sign-in">  
-        <label for = "email">Email</label>
-        <input type="email" id="signIn-email" required placeholder="Enter Email">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" id="signIn-password" required placeholder="Enter Password">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-    <br>
+    <div class="auth-card">
+        <a href="index.html" class="brand">ParkShare</a>
 
-    <button type="submit" id="signout-btn">Log Out</button>
-    
+        <div id="signin-section">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Enter your details to access your account</p>
+            <form id="sign-in">
+                <label for="signIn-email">Email</label>
+                <input type="email" id="signIn-email" required placeholder="name@example.com">
+                
+                <label for="signIn-password">Password</label>
+                <input type="password" id="signIn-password" required placeholder="••••••••">
+                
+                <button type="submit">Sign In</button>
+            </form>
+            <p class="toggle-text">New here? <span class="toggle-link" onclick="toggleForms()">Create an account</span></p>
+        </div>
+
+        <div id="signup-section" class="hidden">
+            <h2>Join ParkShare</h2>
+            <p class="subtitle">Start booking or renting your space today</p>
+            <form id="sign-up">
+                <label for="username">Full Name</label>
+                <input type="text" id="username" required placeholder="Akarsh Jaiswal">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+                
+                <label for="password">Create Password</label>
+                <input type="password" id="password" required placeholder="Min. 6 characters">
+                
+                <button type="submit">Create Account</button>
+            </form>
+            <p class="toggle-text">Already have an account? <span class="toggle-link" onclick="toggleForms()">Sign in instead</span></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            document.getElementById('signin-section').classList.toggle('hidden');
+            document.getElementById('signup-section').classList.toggle('hidden');
+        }
+    </script>
+
     <script type="module" src="auth.js"></script>
-    
+
 </body>
 </html>
-    
