@@ -117,7 +117,8 @@ async function addParkingSpace(e){
             vehicle_type: vehicleType, 
             rate: rate, 
             image: publicUrl,
-            location: pointLoc
+            location: pointLoc,
+            user_id: session.user.id
         });
 
 
