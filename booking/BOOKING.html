@@ -11,12 +11,12 @@
 <div class="booking-container">
     <div class="info-panel">
         <div class="image-placeholder">
-            <img src="https://via.placeholder.com/400x250" alt="Parking Space">
+           <img id="booking-img" src="https://via.placeholder.com/400x250" alt="Parking Space">
         </div>
         <div class="info-content">
             <p class="category">PARKING SPACE</p>
-            <h1>NIT Warangal-Country Oven</h1>
-            <p class="price"><strong>$150.00</strong> / 60 min</p>
+            <h1 id="booking-name">NIT Warangal-Country Oven</h1>
+            <p class="price">₹<strong><span id="booking-price">150.00</span></strong> / 60 min</p>
             <p class="tagline">Experience safety and security</p>
             <ul class="features">
                 <li>✓ Protected parking space</li>
@@ -68,4 +68,22 @@
 </div>
 
 </body>
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const price = urlParams.get('price');
+    const img = urlParams.get('img');
+    const name = urlParams.get('name');
+
+    if (price) {
+        document.getElementById('booking-price').innerText = price;
+    }
+    
+    if (img) {
+        document.getElementById('booking-img').src = decodeURIComponent(img);
+    }
+    
+    if (name) {
+        document.getElementById('booking-name').innerText = decodeURIComponent(name);
+    }
+</script>
 </html>
