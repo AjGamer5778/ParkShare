@@ -340,7 +340,9 @@ body{
                 data.slice(0, 3).forEach(item => {
                     const card = `
                         <div class="card">
-                            <img src="${item.image}" alt="Parking Space">
+                           <a href="booking/BOOKING.html">
+                               <img src="${item.image}" alt="Parking Space" class="space">
+                            </a>
                             <div class="card-content">
                                 <p class="tag">${item.vehicle_type}</p>
                                 <h3 class="renter">${item.renter_name}'s Space</h3>
