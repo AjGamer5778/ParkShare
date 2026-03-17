@@ -338,25 +338,27 @@ body{
                 listDiv.innerHTML = '';
 
                 data.slice(0, 3).forEach(item => {
-                    const bookingUrl = `./booking/BOOKING.html?price=${item.rate}&img=${encodeURIComponent(item.image)}&name=${encodeURIComponent(item.renter_name)}`;
-                    const card = `
-                        <div class="card">
-                          <a href="./booking/BOOKING.html">
-                               <img src="${item.image}" alt="Parking Space" class="space">
-                            </a>
-                            <div class="card-content">
-                                <p class="tag">${item.vehicle_type}</p>
-                                <h3 class="renter">${item.renter_name}'s Space</h3>
-                                <p class="price">₹${item.rate}
-                                    <span style="font-size: 0.8rem; font-weight: normal; color: #666;">
-                                        /hour
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    `;
-                    listDiv.innerHTML += card;
-                });
+  
+    const bookingUrl = `./booking/BOOKING.html?price=${item.rate}&img=${encodeURIComponent(item.image)}&name=${encodeURIComponent(item.renter_name)}`;
+    
+    const card = `
+        <div class="card">
+            <a href="${bookingUrl}">
+                <img src="${item.image}" alt="Parking Space" class="space">
+            </a>
+            <div class="card-content">
+                <p class="tag">${item.vehicle_type}</p>
+                <h3 class="renter">${item.renter_name}'s Space</h3>
+                <p class="price">₹${item.rate}
+                    <span style="font-size: 0.8rem; font-weight: normal; color: #666;">
+                        /hour
+                    </span>
+                </p>
+            </div>
+        </div>
+    `;
+    listDiv.innerHTML += card;
+});
             }
 
             loadSpaces();
