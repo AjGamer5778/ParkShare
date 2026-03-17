@@ -131,6 +131,16 @@
             box-shadow: 0 6px 14px rgba(255, 94, 120, 0.4);
         }
 
+        .button-container {
+            text-align: center;
+        }
+
+        #avg-rating {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
         /* Dividers */
         hr {
             border: 0;
@@ -181,21 +191,23 @@
             <input type="text" id="input-comments" placeholder="Write your experience here...">
         </form>
 
-        <button id="submit-btn">Submit Review</button>
-        <button id="clear-btn">Clear All</button>
+        <div class="button-container">
+            <button id="submit-btn">Submit Review</button>
+            <!-- <button id="clear-btn">Clear All</button> -->
+        </div>
 
         <hr>
 
+        <h2 id="parking-title"></h2>
         <h3>Stored Reviews:</h3>
+        <p><strong>Average Rating:</strong> <span id="avg-rating">0</span> ⭐</p>
+
         <ul id="reviews-list">
-            <li>
-                <strong>Rating: 4/5 ⭐️</strong>
-                <span>"Great product, really enjoyed it!"</span>
-            </li>
         </ul>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="reviewsystembackend.js"></script>
 
 </body>
-</html
+</html>
