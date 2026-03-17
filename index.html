@@ -338,6 +338,7 @@ body{
                 listDiv.innerHTML = '';
 
                 data.slice(0, 3).forEach(item => {
+                    const bookingUrl = `./booking/BOOKING.html?price=${item.rate}&img=${encodeURIComponent(item.image)}&name=${encodeURIComponent(item.renter_name)}`;
                     const card = `
                         <div class="card">
                           <a href="./booking/BOOKING.html">
